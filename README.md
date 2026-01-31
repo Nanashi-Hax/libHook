@@ -1,1 +1,5 @@
-# libHook
+# API
+
+```cpp
+#include <Hook.hpp>
+```
