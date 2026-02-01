@@ -13,7 +13,7 @@ namespace Library::Hook
         std::array<uint32_t, 4> jump;
     };
 
-    void * ReplaceFunction(void * dst, void * const src)
+    void * ReplaceFunction(void * dst, void const * src)
     {
         uint32_t dstAddress = reinterpret_cast<uint32_t>(dst);
         uint32_t srcAddress = reinterpret_cast<uint32_t>(src);
@@ -44,6 +44,7 @@ namespace Library::Hook
             ASM_BCTR
         };
         KernelMemoryCopy(dst, hook.data(), sizeof(hook));
+
         return codeCave;
     }
 }

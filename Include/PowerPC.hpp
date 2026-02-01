@@ -1,8 +1,8 @@
 #pragma once
 
-#define HI_16(x) (x >> 16) & 0xFFFF
-#define HA_16(x) (x + 0x8000) >> 16
-#define LO_16(x) x & 0xFFFF
+#define HI_16(x) (((x) >> 16) & 0xFFFF)
+#define HA_16(x) ((((x) + 0x8000) >> 16) & 0xFFFF)
+#define LO_16(x) ((x) & 0xFFFF)
 
 #define ASM_NOP               0x60000000
 
