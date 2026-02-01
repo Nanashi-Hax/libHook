@@ -27,7 +27,7 @@ namespace Library::Hook
         entry.original = original;
         entry.jump =
         {
-            ASM_LIS(R12, HA_16(jumpTo)),
+            ASM_LIS(R12, HI_16(jumpTo)),
             ASM_ORI(R12, R12, LO_16(jumpTo)),
             ASM_MTCTR(R12),
             ASM_BCTR
@@ -36,7 +36,7 @@ namespace Library::Hook
 
         std::array<uint32_t, 4> hook =
         {
-            ASM_LIS(R12, HA_16(srcAddress)),
+            ASM_LIS(R12, HI_16(srcAddress)),
             ASM_ORI(R12, R12, LO_16(srcAddress)),
             ASM_MTCTR(R12),
             ASM_BCTR
