@@ -25,7 +25,6 @@ namespace Library::Hook
         uint32_t srcEndAddress = reinterpret_cast<uint32_t>(src) + size;
         if(OSIsAddressValid(dstStartAddress) && OSIsAddressValid(dstEndAddress) && OSIsAddressValid(srcStartAddress) && OSIsAddressValid(srcEndAddress))
         {
-            // アドレスを物理アドレスに変換
             uint32_t destPhysicalAddress = OSEffectiveToPhysical(dstStartAddress);
             uint32_t srcPhysicalAddress = OSEffectiveToPhysical(srcStartAddress);
         

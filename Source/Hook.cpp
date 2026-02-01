@@ -3,8 +3,6 @@
 #include <array>
 #include <cstdint>
 
-#include <whb/log.h>
-
 namespace Library::Hook
 {
     struct FunctionEntry
