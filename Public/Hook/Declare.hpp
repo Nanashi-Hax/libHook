@@ -1,20 +1,22 @@
+#pragma once
+
 #define CONSTRUCTOR(addr, ClassName, ...) \
-    inline static void (*ClassName##_Constructor)(ClassName *__VA_OPT__(, __VA_ARGS__)) = \
+    inline static void (*original_##name)(ClassName *__VA_OPT__(, __VA_ARGS__)) = \
         reinterpret_cast<void(*)(ClassName *__VA_OPT__(, __VA_ARGS__))>(addr); \
     ClassName(__VA_ARGS__);
 
 #define METHOD(addr, ret, name, ClassName, ...) \
-    inline static ret (*name##_Function)(ClassName *__VA_OPT__(, __VA_ARGS__)) = \
+    inline static ret (*original_##name)(ClassName *__VA_OPT__(, __VA_ARGS__)) = \
         reinterpret_cast<ret(*)(ClassName *__VA_OPT__(, __VA_ARGS__))>(addr); \
     ret name(__VA_ARGS__);
 
 #define STATIC_METHOD(addr, ret, name, ...) \
-    inline static ret (*name##_Function)(__VA_ARGS__) = \
+    inline static ret (*original_##name)(__VA_ARGS__) = \
         reinterpret_cast<ret(*)(__VA_ARGS__)>(addr); \
     static ret name(__VA_ARGS__);
 
 #define METHOD_FORMAT(addr, ret, name, ClassName, ...) \
-    inline static ret (*v_##name##_Function)(ClassName *, const char*, va_list __VA_OPT__(, __VA_ARGS__)) = \
+    inline static ret (*original_##name)(ClassName *, const char*, va_list __VA_OPT__(, __VA_ARGS__)) = \
         reinterpret_cast<ret(*)(ClassName *, const char*, va_list __VA_OPT__(, __VA_ARGS__))>(addr); \
     ret name(const char* format, ...);
 

@@ -6,6 +6,8 @@
 #include <kernel/kernel.h>
 #include <coreinit/cache.h>
 
+#include <cstdlib>
+
 namespace Library::Hook
 {
     unsigned int ReadUInt32(unsigned int address)
@@ -43,9 +45,6 @@ namespace Library::Hook
 
     void * GetCodecave(size_t size)
     {
-        static uint32_t currentAddress = 0x10000000;
-        currentAddress -= size;
-        KernelMemorySet(reinterpret_cast<void*>(currentAddress), 0, size);
-        return reinterpret_cast<void *>(currentAddress);
+        return std::malloc(size);
     }
 }

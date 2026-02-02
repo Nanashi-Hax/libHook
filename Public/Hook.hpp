@@ -1,6 +1,8 @@
 #pragma once
 
-#include <Hook/Macro.hpp>
+#include <Hook/Declare.hpp>
+#include <Hook/PowerPC.hpp>
+#include <Hook/Replace.hpp>
 
 namespace Library::Hook
 {
