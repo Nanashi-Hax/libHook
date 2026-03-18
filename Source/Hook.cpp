@@ -1,5 +1,6 @@
 #include "Hook/PowerPC.hpp"
 #include "Memory.hpp"
+#include "Hook.hpp"
 #include <array>
 #include <cstdint>
 
