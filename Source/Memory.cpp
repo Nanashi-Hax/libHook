@@ -43,8 +43,16 @@ namespace Library::Hook
         KernelMemoryCopy(dst, buffer.data(), size);
     }
 
-    void * GetCodecave(size_t size)
+    void * GetCodecaveFar(size_t size)
     {
         return std::malloc(size);
+    }
+
+    void * GetCodecaveNear(size_t size)
+    {
+        static uint32_t currentAddress = 0x10000000;
+        currentAddress -= size;
+        KernelMemorySet(reinterpret_cast<void*>(currentAddress), 0, size);
+        return reinterpret_cast<void *>(currentAddress);
     }
 }

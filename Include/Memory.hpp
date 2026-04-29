@@ -5,5 +5,6 @@
 
 namespace Library::Hook
 {
-    void * GetCodecave(size_t size);
+    void * GetCodecaveFar(size_t size); // ジャンプ先の距離がb命令の範囲内になることは保証されない
+    void * GetCodecaveNear(size_t size); // ジャンプ先の距離がb命令の範囲内になることが保証される
 }
